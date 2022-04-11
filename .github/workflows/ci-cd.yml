@@ -36,7 +36,7 @@ jobs:
         with:
           java-version: 17
           distribution: 'temurin'
-         # cache: 'maven'
+          cache: 'maven'
 
       - name: Configure the application.properties file
         run: |
