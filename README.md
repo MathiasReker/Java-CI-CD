@@ -53,6 +53,9 @@ Add following keys:
    GITHUB_USER=mathiasreker" >".env"
    ```
 
+### Package visibility
+Go to your packages -> package settings -> danger zone -> change visibility -> make it public
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
@@ -67,7 +70,7 @@ The CD pipeline is triggered on push events. The CD pipeline will be skipped if 
 
 - [x] CI workflow
 - [x] CD workflow
-- [x] UI test
+- [x] UT test
 - [ ] IT test using JPA
 
 See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a full list of proposed features (
@@ -117,6 +120,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 [license-url]: https://github.com/MathiasReker/CI-CD/blob/master/LICENSE.txt
 
-[cicd-shield]: https://github.com/MathiasReker/CI-CD/actions/workflows/ci-cd.yml/badge.svg
+[cicd-shield]: https://github.com/MathiasReker/CI-CD/actions/workflows/ci-cd.yml/badge.svg?branch=develop
 
 [cicd-url]: https://github.com/MathiasReker/CI-CD/actions/workflows/ci-cd.yml
