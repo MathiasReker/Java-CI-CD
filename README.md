@@ -16,19 +16,18 @@
 
 ## Getting Started
 
-This is an example of building a CI & CD pipeline using GitHub actions.
+This is an example of building a CI & CD pipeline using GitHub actions. :white_check_mark::octocat::whale2::rocket:
 
 The CI pipeline depends on maven to compile and test the project's code. JPA/MySQL is supported.
 
-The CD pipeline will create a docker image of the project's code and deploy the docker containers to a remote server using
-SSH. Using docker-compose, we can set a subnetwork along the docker containers that links the project's container with
-an MySQL container.
+The CD pipeline will create a docker image of the project's code and deploy the docker container to a remote server using
+SSH along with a MySQL container. The bridge driver of docker networks connects these containers.
 
 In the `docker-compose.yml`, you can configure the tag of the images. By default, the tag of the project is `dev`.
 However, you can change the tag to a specific version to control the deployment. The workflow supports tags in sem-version
 format like `v*.*.*`.
 
-To create a new release using a specific tag; go to tags -> create new release -> publish the release.
+To create a new release using a specific tag navigate to your GitHub repository. Go to tags -> create new release -> publish the release.
 
 ### Install the workflow to your project
 
@@ -38,7 +37,7 @@ To create a new release using a specific tag; go to tags -> create new release -
 
 3. Copy the [Dockerfile](https://github.com/MathiasReker/CI-CD/blob/develop/Dockerfile) to the root folder of your project.
 
-_It is necessary to adapt the files to your specific project_
+_It is necessary to adapt the `docker-compose.yml` and the `Dockerfile` depending on your own project_
 
 ### Install Actions secrets
 
@@ -74,15 +73,16 @@ Add following secrets:
    ```
 
 ### Package visibility
-In order for you to see package(s), the CD pipeline must run at least once. The pipeline will create a package linked to your GitHub repository.
+In order for you to see package, the CD pipeline must run at least once. The pipeline will create a package linked to your GitHub repository.
 
-Go to the package -> select package settings -> select danger zone -> change visibility -> make it public.
+Navigate to your GitHub repository. Go to the package -> select package settings -> select danger zone -> change visibility -> make it public.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
 
 The CI pipeline is triggered on any change to the code on your repository.
+
 The CD pipeline is triggered on push events. The CD pipeline will be skipped if the CI pipeline fails.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
