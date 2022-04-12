@@ -8,9 +8,9 @@
 [![CI/CD][cicd-shield]][cicd-url]
 
 <div align="center">
-<h3 align="center">CI/CD GitHub Action</h3>
+<h3 align="center">CI/CD GitHub Action :rocket:</h3>
   <p align="center">
-    A CI/CD workflow for your maven project! :white_check_mark::octocat::whale2::rocket:
+    A CI/CD workflow for your maven project!
   </p>
 </div>
 
@@ -20,8 +20,8 @@ This is an example of building a CI & CD pipeline using GitHub actions.
 
 The CI pipeline depends on maven to compile and test the project's code. JPA/MySQL is supported.
 
-The CD pipeline will create a docker image of the project's code and deploy the docker container to a remote server using
-SSH along with a MySQL container. The bridge driver of docker networks connects these containers.
+The CD pipeline will create a docker image of the project's code and deploy the image as a docker container along with a MySQL container on a remote server using
+SSH. The bridge driver of docker networks connects these containers.
 
 In the `docker-compose.yml`, you can configure the tag of the images. By default, the tag of the project is `dev`.
 However, you can change the tag to a specific version to control the deployment. The workflow supports tags in sem-version
@@ -37,13 +37,13 @@ To create a new release using a specific tag navigate to your GitHub repository.
 
 3. Copy the [Dockerfile](https://github.com/MathiasReker/CI-CD/blob/develop/Dockerfile) to the root folder of your project.
 
-_It is necessary to adapt the `docker-compose.yml` and the `Dockerfile` depending on your own project_
+_It is necessary to adapt the `docker-compose.yml` and the `Dockerfile` depending on your project_
 
-### Install Actions secrets
+### Install actions secrets
 
 Navigate to your GitHub repository. Go to settings -> secrets -> actions.
 
-Add following secrets:
+Add the following secrets:
 - SSH_USER
 - SSH_HOST
 - SSH_PRIVATE_KEY
@@ -73,7 +73,7 @@ Add following secrets:
    ```
 
 ### Package visibility
-In order for you to see package, the CD pipeline must run at least once. The pipeline will create a package linked to your GitHub repository.
+To see the package, the CD pipeline must run at least once. The pipeline will create a package linked to your GitHub repository.
 
 Navigate to your GitHub repository. Go to the package -> select package settings -> select danger zone -> change visibility -> make it public.
 
