@@ -79,7 +79,7 @@ Add the following secrets:
 
 _`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
 
-_`DOCKER_IMAGE_NAME` must match the name of the docker image defined in `docker-compose.yml`._
+_`DOCKER_IMAGE_NAME` must match the name of the docker image defined in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
 
 _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
