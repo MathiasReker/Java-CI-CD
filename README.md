@@ -91,8 +91,8 @@ The CD pipeline is triggered on push events. The CD pipeline will be skipped if 
 
 - [x] CI workflow
 - [x] CD workflow
-- [x] UT test
-- [x] IT test using JPA
+- [x] Unit test
+- [x] Integration test using JPA
 
 See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a complete list of proposed features (and known
 issues).
