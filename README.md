@@ -18,17 +18,17 @@
 
 This is an example of building a CI & CD pipeline using GitHub actions.
 
-The CI pipeline depends on maven to compile and test your project's code. JPA/MySQL is supported.
+The CI pipeline depends on maven to compile and test the project's code. JPA/MySQL is supported.
 
-The CD pipeline will create a docker image of your project and deploy the docker containers to a remote server using
-SSH. Using docker-compose, we can create a subnetwork inside the docker containers that links the project's image with
-an image of MySQL.
+The CD pipeline will create a docker image of the project's code and deploy the docker containers to a remote server using
+SSH. Using docker-compose, we can set a subnetwork along the docker containers that links the project's container with
+an MySQL container.
 
-In the `docker-compose.yml`, you can configure the tag of the images. By default, the tag of the project is dev.
-However, you can change that to a specific version to control the deployment. The workflow supports tags in sem-version
-format `v*.*.*`.
+In the `docker-compose.yml`, you can configure the tag of the images. By default, the tag of the project is `dev`.
+However, you can change the tag to a specific version to control the deployment. The workflow supports tags in sem-version
+format like `v*.*.*`.
 
-To create a new release using a specific tag; go to tags -> Create new release -> publish the release.
+To create a new release using a specific tag; go to tags -> create new release -> publish the release.
 
 ### Install the workflow to your project
 
@@ -38,14 +38,14 @@ Copy the [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/w
 
 Navigate to your GitHub repository. Go to settings -> secrets -> actions.
 
-Add following keys:
+Add following secrets:
 - SSH_USER
 - SSH_HOST
 - SSH_PRIVATE_KEY
 
 ### Prepare the production server
 
-1. Connect to your server with SSH
+1. Connect to your server
    ```sh
    ssh -i <private key path> <user>@<host>
    ```
@@ -68,16 +68,16 @@ Add following keys:
    ```
 
 ### Package visibility
-In order to see packages, the CD pipeline must run atleast once. The pipeline will create a package on your GitHib repository.
+In order for you to see package(s), the CD pipeline must run atleast once. The pipeline will create a package linked to your GitHib repository.
 
-Go to the package -> select package settings -> select danger zone -> change visibility -> make it public
+Go to the package -> select package settings -> select danger zone -> change visibility -> make it public.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
 
-The CI pipeline is triggered on any change to the code on your repository. The CD pipeline is triggered on push events.
-The CD pipeline will be skipped if the CI pipeline fails.
+The CI pipeline is triggered on any change to the code on your repository.
+The CD pipeline is triggered on push events. The CD pipeline will be skipped if the CI pipeline fails.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
