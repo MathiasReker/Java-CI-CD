@@ -40,7 +40,7 @@ To create a new release using a specific tag; go to tags -> create new release -
 
 _It is necessary to adapt the files to your specific project_
 
-###`` Install Actions secrets
+### Install Actions secrets
 
 Navigate to your GitHub repository. Go to settings -> secrets -> actions.
 
