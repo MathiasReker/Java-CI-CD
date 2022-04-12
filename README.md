@@ -19,12 +19,15 @@
 
 This is an example on how you can build a CI & CD pipeline with GitHub actions.
 
+### Install the workflow to your project
+
+Copy the [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml) to this path of your repository: `/.github/workflows/ci-cd.yml`.
+
 ### Install Actions secrets
 
 Navigate to your GitHub repository. Go to settings -> secrets -> actions.
 
 Add following keys:
-
 - SSH_USER
 - SSH_HOST
 - SSH_PRIVATE_KEY
@@ -54,7 +57,9 @@ Add following keys:
    ```
 
 ### Package visibility
-Go to your packages -> package settings -> danger zone -> change visibility -> make it public
+In order to see packages, the CD pipeline must run atleast once. The pipeline will create a package on your GitHib repository.
+
+Go to the package -> select package settings -> select danger zone -> change visibility -> make it public
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
