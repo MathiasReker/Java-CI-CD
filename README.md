@@ -30,10 +30,15 @@ format `v*.*.*`.
 
 To create a new release using a specific tag; go to tags -> Create new release -> publish the release.
 
+### Install the workflow to your project
+
+Copy the [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml) to this path of your repository: `/.github/workflows/ci-cd.yml`.
+
 ### Install Actions secrets
 
-Navigate to your GitHub repository. Go to settings -> secrets -> actions. Add the following keys:
+Navigate to your GitHub repository. Go to settings -> secrets -> actions.
 
+Add following keys:
 - SSH_USER
 - SSH_HOST
 - SSH_PRIVATE_KEY
@@ -62,6 +67,11 @@ Navigate to your GitHub repository. Go to settings -> secrets -> actions. Add th
    GITHUB_USER=mathiasreker" >".env"
    ```
 
+### Package visibility
+In order to see packages, the CD pipeline must run atleast once. The pipeline will create a package on your GitHib repository.
+
+Go to the package -> select package settings -> select danger zone -> change visibility -> make it public
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
@@ -75,7 +85,7 @@ The CD pipeline will be skipped if the CI pipeline fails.
 
 - [x] CI workflow
 - [x] CD workflow
-- [x] UI test
+- [x] UT test
 - [ ] IT test using JPA
 
 See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a complete list of proposed features (and known
@@ -125,6 +135,6 @@ It is distributed under the MIT License. See `LICENSE` for more information.
 
 [license-url]: https://github.com/MathiasReker/CI-CD/blob/master/LICENSE.txt
 
-[cicd-shield]: https://github.com/MathiasReker/CI-CD/actions/workflows/ci-cd.yml/badge.svg
+[cicd-shield]: https://github.com/MathiasReker/CI-CD/actions/workflows/ci-cd.yml/badge.svg?branch=develop
 
 [cicd-url]: https://github.com/MathiasReker/CI-CD/actions/workflows/ci-cd.yml
