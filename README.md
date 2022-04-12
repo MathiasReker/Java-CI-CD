@@ -37,7 +37,7 @@ To create a new release using a specific tag navigate to your GitHub repository.
 
 3. Copy the [Dockerfile](https://github.com/MathiasReker/CI-CD/blob/develop/Dockerfile) to the root folder of your project.
 
-_It is necessary to adapt the `docker-compose.yml` and the `Dockerfile` depending on your project_
+_It is necessary to adapt the `docker-compose.yml` and the `Dockerfile` depending on your project._
 
 ### Install actions secrets
 
@@ -71,6 +71,10 @@ Add the following secrets:
    DOCKER_IMAGE_NAME=ci-cd
    GITHUB_USER=mathiasreker" >".env"
    ```
+
+_`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
+_`DOCKER_IMAGE_NAME` must match the name of the docker image defined in `docker-compose.yml`._
+_`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
 ### Package visibility
 To see the package, the CD pipeline must run at least once. The pipeline will create a package linked to your GitHub repository.
