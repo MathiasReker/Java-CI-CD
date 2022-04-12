@@ -12,7 +12,7 @@
   <p align="center">
     A CI/CD workflow for your maven project!
   </p>
-</div>
+</div>``
 
 ## Getting Started
 
@@ -32,9 +32,15 @@ To create a new release using a specific tag; go to tags -> create new release -
 
 ### Install the workflow to your project
 
-Copy the [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml) to this path of your repository: `/.github/workflows/ci-cd.yml`.
+1. Copy the [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml) to this path of your repository: `/.github/workflows/ci-cd.yml`.
 
-### Install Actions secrets
+2. Copy the [docker-compose.yml](https://github.com/MathiasReker/CI-CD/blob/develop/docker-compose.yml) to the root folder of your project.
+
+3. Copy the [Dockerfile](https://github.com/MathiasReker/CI-CD/blob/develop/Dockerfile) to the root folder of your project.
+
+_It is necessary to adapt the files to your specific project_
+
+###`` Install Actions secrets
 
 Navigate to your GitHub repository. Go to settings -> secrets -> actions.
 
@@ -68,7 +74,7 @@ Add following secrets:
    ```
 
 ### Package visibility
-In order for you to see package(s), the CD pipeline must run atleast once. The pipeline will create a package linked to your GitHib repository.
+In order for you to see package(s), the CD pipeline must run at least once. The pipeline will create a package linked to your GitHub repository.
 
 Go to the package -> select package settings -> select danger zone -> change visibility -> make it public.
 
@@ -86,7 +92,7 @@ The CD pipeline is triggered on push events. The CD pipeline will be skipped if 
 - [x] CI workflow
 - [x] CD workflow
 - [x] UT test
-- [ ] IT test using JPA
+- [x] IT test using JPA
 
 See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a complete list of proposed features (and known
 issues).
