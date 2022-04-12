@@ -10,13 +10,13 @@
 <div align="center">
 <h3 align="center">CI/CD GitHub Action</h3>
   <p align="center">
-    A CI/CD workflow for your maven project!
+    A CI/CD workflow for your maven project! :white_check_mark::octocat::whale2::rocket:
   </p>
 </div>
 
 ## Getting Started
 
-This is an example of building a CI & CD pipeline using GitHub actions. :white_check_mark::octocat::whale2::rocket:
+This is an example of building a CI & CD pipeline using GitHub actions.
 
 The CI pipeline depends on maven to compile and test the project's code. JPA/MySQL is supported.
 
