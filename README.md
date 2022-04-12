@@ -115,9 +115,6 @@ issues).
 
 ## Contributing
 
-Contributions make the open-source community a fantastic place to learn, inspire, and create. Any donations you make
-are **greatly appreciated**.
-
 If you have a suggestion to improve this, please fork the repo and create a pull request. You can also open an issue
 with the tag "enhancement". Finally, don't forget to give the project a star! Thanks again!
 
