@@ -9,21 +9,30 @@
 
 <div align="center">
 <h3 align="center">CI/CD GitHub Action</h3>
-
   <p align="center">
-    A CI/CD pipeline for your maven project!
+    A CI/CD workflow for your maven project!
   </p>
 </div>
 
 ## Getting Started
 
-This is an example on how you can build a CI & CD pipeline with GitHub actions.
+This is an example of building a CI & CD pipeline using GitHub actions.
+
+The CI pipeline depends on maven to compile and test your project's code. JPA/MySQL is supported.
+
+The CD pipeline will create a docker image of your project and deploy the docker containers to a remote server using
+SSH. Using docker-compose, we can create a subnetwork inside the docker containers that links the project's image with
+an image of MySQL.
+
+In the `docker-compose.yml`, you can configure the tag of the images. By default, the tag of the project is dev.
+However, you can change that to a specific version to control the deployment. The workflow supports tags in sem-version
+format `v*.*.*`.
+
+To create a new release using a specific tag; go to tags -> Create new release -> publish the release.
 
 ### Install Actions secrets
 
-Navigate to your GitHub repository. Go to settings -> secrets -> actions.
-
-Add following keys:
+Navigate to your GitHub repository. Go to settings -> secrets -> actions. Add the following keys:
 
 - SSH_USER
 - SSH_HOST
@@ -57,9 +66,8 @@ Add following keys:
 
 ## Usage
 
-The CI pipeline is triggered on any change to the code on your repository.
-
-The CD pipeline is triggered on push events. The CD pipeline will be skipped if the CI pipeline fails.
+The CI pipeline is triggered on any change to the code on your repository. The CD pipeline is triggered on push events.
+The CD pipeline will be skipped if the CI pipeline fails.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -70,18 +78,18 @@ The CD pipeline is triggered on push events. The CD pipeline will be skipped if 
 - [x] UI test
 - [ ] IT test using JPA
 
-See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a full list of proposed features (
-and known issues).
+See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a complete list of proposed features (and known
+issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
-contributions you make are **greatly appreciated**.
+Contributions make the open-source community a fantastic place to learn, inspire, and create. Any donations you make
+are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
-simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
+If you have a suggestion to improve this, please fork the repo and create a pull request. You can also open an issue
+with the tag "enhancement". Finally, don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -93,7 +101,7 @@ simply open an issue with the tag "enhancement". Don't forget to give the projec
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+It is distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
