@@ -1,19 +1,18 @@
 # Continuous integration and continuous deployment workflow.
 #
-# For most projects, this workflow file will not need changing; you simply need
+# For most projects, this workflow file will not need changing; you need
 # to commit it to your repository.
 #
-# You may wish to change the name of the IMAGE_NAME envarioment variable. This
+# You may wish to change the name of the IMAGE_NAME environment variable. This
 # variable is used to name the docker image.
 #
-# Auther: Mathias Reker (https://github.com/MathiasReker).
+# Author: Mathias Reker (https://github.com/MathiasReker).
 #
 
 name: CI/CD
 
 on:
-  push:
-    # The branches below must match the braches that you would like to trigger on push requests
+  push: # The branches below must match the branches that you would like to trigger on push requests
     branches: [ develop ]
     
     tags:
