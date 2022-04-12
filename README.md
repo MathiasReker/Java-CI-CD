@@ -12,7 +12,7 @@
   <p align="center">
     A CI/CD workflow for your maven project!
   </p>
-</div>``
+</div>
 
 ## Getting Started
 
