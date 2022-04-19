@@ -66,7 +66,7 @@ publish the release.
    cat github-actions.pub >> authorized_keys
    ```
 
-### Install actions secrets
+### Install action secrets
 
 Navigate to your GitHub repository. Go to settings -> secrets -> actions.
 
