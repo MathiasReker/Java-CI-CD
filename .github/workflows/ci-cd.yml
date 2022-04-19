@@ -111,5 +111,5 @@ jobs:
       - name: Push docker compose to remote host
         run: rsync -e ssh ./docker-compose.yml server:~/
 
-      - name: run coommand
+      - name: Build the stack
         run: ssh server 'sudo docker-compose pull; sudo docker-compose up --force-recreate --build -d; sudo docker image prune -f'
