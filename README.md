@@ -30,6 +30,42 @@ sem-version format like `v*.*.*`.
 To create a new release using a specific tag navigate to your GitHub repository. Go to tags -> create new release ->
 publish the release.
 
+### Prepare the production server
+
+1. Connect to your server
+   ```sh
+   ssh -i <private key path> <user>@<host>
+   ```
+2. Update and upgrade packages
+   ```sh
+   sudo apt-get update && sudo apt-get -y upgrade
+   ```
+3. Install docker-compose
+   ```sh
+   sudo apt install -y docker-compose
+   ```
+4. Add environment variables
+   ```sh
+   echo "MYSQL_ROOT_PASSWORD=myrootpw
+   MYSQL_DATABASE=mydb
+   MYSQL_USER=myuser
+   MYSQL_PASSWORD=mypw
+   DOCKER_IMAGE_NAME=ci-cd
+   GITHUB_USER=mathiasreker" >".env"
+   ```
+   _`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
+
+   _`DOCKER_IMAGE_NAME` must match the name of the docker image defined in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
+
+   _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
+
+5. Generate a new key named `github-actions` with empty password
+   ```sh
+   cd ~/.ssh
+   ssh-keygen -t rsa -b 4096
+   cat github-actions.pub >> authorized_keys
+   ```
+
 ### Install the workflow to your project
 
 1. Copy the [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml) to this path of
@@ -52,42 +88,6 @@ Add the following secrets:
 - SSH_USER
 - SSH_HOST
 - SSH_PRIVATE_KEY
-
-### Prepare the production server
-
-1. Connect to your server
-   ```sh
-   ssh -i <private key path> <user>@<host>
-   ```
-2. Update and upgrade packages
-   ```sh
-   sudo apt-get update && sudo apt-get -y upgrade
-   ```
-3. Install docker-compose
-   ```sh
-   sudo apt install -y docker-compose
-   ```
-4. Add environment variables
-   ```sh
-   echo "MYSQL_ROOT_PASSWORD=myrootpw
-   MYSQL_DATABASE=mydb
-   MYSQL_USER=myuser
-   MYSQL_PASSWORD=mypw
-   DOCKER_IMAGE_NAME=ci-cd
-   GITHUB_USER=mathiasreker" >"~/.env"
-   ```
-   _`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
-
-   _`DOCKER_IMAGE_NAME` must match the name of the docker image defined in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
-
-   _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
-
-5. Generate a new key named `github-actions` with empty password
-   ```sh
-   cd ~/.ssh
-   ssh-keygen -t rsa -b 4096
-   cat github-actions.pub >> authorized_keys
-   ```
 
 ### Package visibility
 
