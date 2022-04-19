@@ -10,7 +10,7 @@ name: CI/CD
 on:
   push: # The branches below must match the branches that you would like to trigger on push requests
     branches: [ develop ]
-    
+
     tags:
       - v*.*.*
 
@@ -20,8 +20,7 @@ on:
 
 env:
   IMAGE_NAME: ci-cd
-  SSH_NAME: github-action
-  
+
 jobs:
   CI:
     runs-on: ubuntu-latest
@@ -55,6 +54,7 @@ jobs:
           spring.jpa.hibernate.ddl-auto=create
           spring.jpa.open-in-view=false
           spring.data.jpa.repositories.bootstrap_mode=default" >"./src/main/resources/application.properties"
+
       - name: Build & Test
         run: mvn -B verify --file pom.xml
 
@@ -94,21 +94,22 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-      - name: Install SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
 
-      - name: Add known hosts
-        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-action.pem
+          chmod 600 ~/.ssh/github-action.pem
+          cat >>~/.ssh/config <<EOF
+          Host server
+            HostName ${{ secrets.SSH_HOST }}
+            User ${{ secrets.SSH_USER }}
+            IdentityFile ~/.ssh/github-action.pem
+            StrictHostKeyChecking no
+          EOF
 
       - name: Push docker compose to remote host
-        run: rsync -avz ./docker-compose.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/
+        run: rsync -e ssh ./docker-compose.yml server:~/
 
-      - name: Build the stack
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -i ~/.ssh/$SSH_NAME \
-          "sudo docker-compose pull; \
-          sudo docker-compose up --force-recreate --build -d; \
-          sudo docker image prune -f"
+      - name: run coommand
+        run: ssh server 'sudo docker-compose pull; sudo docker-compose up --force-recreate --build -d; sudo docker image prune -f'
