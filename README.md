@@ -66,6 +66,16 @@ publish the release.
    cat github-actions.pub >> authorized_keys
    ```
 
+### Install actions secrets
+
+Navigate to your GitHub repository. Go to settings -> secrets -> actions.
+
+Add the following secrets:
+
+- SSH_USER
+- SSH_HOST
+- SSH_PRIVATE_KEY
+
 ### Install the workflow to your project
 
 1. Copy the [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml) to this path of
@@ -78,16 +88,6 @@ publish the release.
    project.
 
 _It is necessary to adapt the `docker-compose.yml` and the `Dockerfile` depending on your project._
-
-### Install actions secrets
-
-Navigate to your GitHub repository. Go to settings -> secrets -> actions.
-
-Add the following secrets:
-
-- SSH_USER
-- SSH_HOST
-- SSH_PRIVATE_KEY
 
 ### Package visibility
 
