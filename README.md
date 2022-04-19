@@ -76,12 +76,18 @@ Add the following secrets:
    DOCKER_IMAGE_NAME=ci-cd
    GITHUB_USER=mathiasreker" >".env"
    ```
+   _`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
 
-_`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
+   _`DOCKER_IMAGE_NAME` must match the name of the docker image defined in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
 
-_`DOCKER_IMAGE_NAME` must match the name of the docker image defined in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
+   _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
-_`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
+5. Generate a new key named `github-actions` with empty password
+   ```sh
+   cd ~/.ssh
+   ssh-keygen -t rsa -b 4096
+   cat github-actions.pub >> authorized_keys
+   ```
 
 ### Package visibility
 
