@@ -32,6 +32,11 @@ publish the release.
 
 ### Prepare the production server
 
+_This script replaces step 3-7 (optinal)_
+```sh
+   bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
+ ```
+
 1. Connect to your server
    ```sh
    ssh -i <private key path> <user>@<host>
@@ -52,34 +57,27 @@ publish the release.
 
    _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
-### Installation script
-   _(Optinal) You can either run this install script or skip this step for manual installation_  
-   ```sh
-   bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
-   ```
-
-### Manually installation
-1. Update and upgrade packages
+3. Update and upgrade packages
    ```sh
    sudo apt-get update && sudo apt-get -y upgrade
    ```
 
-2. Install docker-compose
+4. Install docker-compose
    ```sh
    sudo apt-get install -y docker-compose
    ```
 
-3. Generate a new key named `github-actions` with an empty password
+5. Generate a new key named `github-actions` with an empty password
    ```sh
    ssh-keygen -t rsa -b 4096 -f ~/.ssh/github-actions -q -P ""
    ```
 
-4. Copy the content of `github-actions` into `authorized_keys`
+6. Copy the content of `github-actions` into `authorized_keys`
    ```sh
    cat ~/.ssh/github-actions.pub >> ~/.ssh/authorized_keys
    ```
 
-5. Grap the private key, as you will need it soon
+7. Grap the private key, as you will need it soon
    ```sh
    cat ~/.ssh/github-actions
    ```
