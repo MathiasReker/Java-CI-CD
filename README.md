@@ -42,7 +42,7 @@ publish the release.
    ```
 3. Install docker-compose
    ```sh
-   sudo apt install -y docker-compose
+   sudo apt-get install -y docker-compose
    ```
 4. Add environment variables
    ```sh
