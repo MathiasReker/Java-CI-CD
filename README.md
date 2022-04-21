@@ -32,11 +32,6 @@ publish the release.
 
 ### Prepare the production server
 
-_This script replaces step 3-7 (optional)_
-```sh
-bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
- ```
-
 1. Connect to your server
    ```sh
    ssh -i <private key path> <user>@<host>
@@ -56,6 +51,11 @@ bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/inst
    _`DOCKER_IMAGE_NAME` must match the name of the docker image defined in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
 
    _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
+
+_This script replaces step 3-7 (optional)_
+```sh
+bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
+ ```
 
 3. Update and upgrade packages
    ```sh
