@@ -36,15 +36,8 @@ publish the release.
    ```sh
    ssh -i <private key path> <user>@<host>
    ```
-2. Update and upgrade packages
-   ```sh
-   sudo apt-get update && sudo apt-get -y upgrade
-   ```
-3. Install docker-compose
-   ```sh
-   sudo apt-get install -y docker-compose
-   ```
-4. Add environment variables
+
+2. Add environment variables
    ```sh
    echo "MYSQL_ROOT_PASSWORD=myrootpw
    MYSQL_DATABASE=mydb
@@ -58,6 +51,24 @@ publish the release.
    _`DOCKER_IMAGE_NAME` must match the name of the docker image defined in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
 
    _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
+
+#### Automatic install
+   _You can either run this install script or skip this step for manual installation_  
+   ```sh
+   bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
+   ```sh
+
+#### Manually install
+
+3. Update and upgrade packages
+   ```sh
+   sudo apt-get update && sudo apt-get -y upgrade
+   ```
+
+4. Install docker-compose
+   ```sh
+   sudo apt-get install -y docker-compose
+   ```
 
 5. Generate a new key named `github-actions` with an empty password
    ```sh
