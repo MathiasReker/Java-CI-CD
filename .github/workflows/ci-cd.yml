@@ -102,7 +102,6 @@ jobs:
 
       - name: Configure SSH
         run: |
-          mkdir -p ~/.ssh/
           cat "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-action.pem
           chmod 600 ~/.ssh/github-action.pem
           cat >>~/.ssh/config <<EOF
