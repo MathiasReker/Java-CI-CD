@@ -25,7 +25,7 @@ cat $ssh_key.pub >>~/.ssh/authorized_keys
 
 # Get GitHub secrets
 SSH_USER=$(whoami)
-SSH_HOST=$(echo "$SSH_CLIENT" | awk '{print $1}')
+SSH_HOST=$(curl ifconfig.me)
 SSH_PRIVATE_KEY=$(cat ~/.ssh/github-actions)
 
 RED="31"
