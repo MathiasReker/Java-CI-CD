@@ -51,7 +51,7 @@ publish the release.
    MYSQL_USER=myuser
    MYSQL_PASSWORD=mypw
    DOCKER_IMAGE_NAME=ci-cd
-   GITHUB_USER=mathiasreker" >".env"
+   GITHUB_USER=mathiasreker" > ~/.env
    ```
    _`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
 
