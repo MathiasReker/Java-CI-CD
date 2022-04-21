@@ -20,6 +20,7 @@ on:
 
 env:
   IMAGE_NAME: ci-cd
+  DEV_BRANCH: develop
 
 jobs:
   CI:
@@ -93,7 +94,7 @@ jobs:
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
 
           # Use Docker `dev` tag
-          [ "$VERSION" == "develop" ] && VERSION=dev
+          [ "$VERSION" == "$DEV_BRANCH" ] && VERSION=dev
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
