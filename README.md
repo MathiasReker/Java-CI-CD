@@ -62,7 +62,13 @@ publish the release.
 5. Generate a new key named `github-actions` with empty password
    ```sh
    cd ~/.ssh
+   ```
+
+   ```sh
    ssh-keygen -t rsa -b 4096
+   ```
+
+   ```sh
    cat github-actions.pub >> authorized_keys
    ```
 
