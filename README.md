@@ -24,10 +24,10 @@ The CD pipeline will create a docker image of the project's code and deploy the 
 MySQL container on a remote server using SSH. The bridge driver of docker networks connects these containers.
 
 In the `docker-compose.yml`, you can configure the tag of the images. By default, the tag of the project is `dev`.
-However, you can change the tag to a specific version to control the deployment. The workflow supports tags in
+However, you can change the tag to a specific version to control the deployment. The workflow supports tags in the 
 sem-version format like `v*.*.*`.
 
-To create a new release using a specific tag navigate to your GitHub repository. Go to tags -> create new release ->
+To create a new release using a specific tag, navigate to your GitHub repository. Go to tags -> create new release ->
 publish the release.
 
 ### Prepare the production server
@@ -64,7 +64,7 @@ publish the release.
    cd ~/.ssh
    ```
 
-6. Generate a new key named `github-actions` with empty password
+6. Generate a new key named `github-actions` with an empty password
    ```sh
    ssh-keygen -t rsa -b 4096
    ```
@@ -95,7 +95,7 @@ Add the following secrets:
 3. Copy the [Dockerfile](https://github.com/MathiasReker/CI-CD/blob/develop/Dockerfile) to the root folder of your
    project.
 
-_It is necessary to adapt the `docker-compose.yml` and the `Dockerfile` depending on your project._
+_Depending on your project, it is necessary to adapt the `docker-compose.yml` and the `Dockerfile`._
 
 ### Package visibility
 
