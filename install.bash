@@ -1,88 +1,107 @@
 #!/bin/bash
 
-readonly PROPERTY_FILE="./.env"
-readonly RED="\e[31m"
-readonly GREEN="\e[32m"
-readonly CYAN="\e[36m"
-readonly NC="\e[0m"
+env_file=~/.env
+ssh_key=~/.ssh/github-actions
 
-get_property_value() {
-  if [ -f "$PROPERTY_FILE" ]; then
-    (grep -w "$1" | cut -d= -f2) <"$PROPERTY_FILE"
+if [ -f $env_file ]; then
+   rm $env_file 2>/dev/null
+fi
+
+if [ -f $ssh_key ]; then
+   rm $ssh_key 2>/dev/null
+fi
+
+# Add environment variables
+array=(MYSQL_ROOT_PASSWORD MYSQL_DATABASE MYSQL_USER MYSQL_PASSWORD DOCKER_IMAGE_NAME GITHUB_USER)
+for i in "${array[@]}"; do
+  # Type the text that you want to append
+  read -rp "$i: " newtext
+
+  # Check the new text is empty or not
+  if [ "$newtext" != "" ]; then
+    # Append the text by using '>>' symbol
+    echo "$i=$newtext" >>"$env_file"
   fi
-}
-
-set_properties() {
-
-
-
-
-array=( MYSQL_ROOT_PASSWORD two three )
-for i in "${array[@]}"
-do
-	echo "$i"
-	  # MYSQL_ROOT_PASSWORD
-    get_db_password=$(get_property_value "$i")
-    if [ -z "$get_db_password" ]; then
-      db_password="myrootpw"
-    else
-      db_password="$get_db_password"
-    fi
-    read -r -e -i "$db_password" -p "$(echo -e "${CYAN}$i: ${NC}")" input
-    db_password="${input:-$db_password}"
 done
 
+echo Please wait ...
 
+# Update and upgrade packages
+sudo apt-get update -qq 2>/dev/null
+sudo apt-get -y -qq upgrade 2>/dev/null
 
+# Install docker-compose
+sudo apt-get install -y -qq docker-compose 2>/dev/null
 
+# Generate a new key named github-actions with an empty password
+ssh-keygen -t rsa -b 4096 -f $ssh_key -q -P ""
 
+# Copy the content of github-actions into authorized_keys
+cat $ssh_key.pub >>~/.ssh/authorized_keys
 
+# Get GitHub secrets
+SSH_USER=$(whoami)
+SSH_HOST=$(echo "$SSH_CLIENT" | awk '{print $1}')
+SSH_PRIVATE_KEY=$(cat ~/.ssh/github-actions)
 
-echo "MYSQL_ROOT_PASSWORD=myrootpw
-MYSQL_DATABASE=mydb
-MYSQL_USER=myuser
-MYSQL_PASSWORD=mypw
-DOCKER_IMAGE_NAME=ci-cd
-GITHUB_USER=mathiasreker" > ~/.env
+GREEN="32"
+BOLDGREEN="\e[1;${GREEN}m"
+ENDCOLOR="\e[0m"
 
-  echo "user=$db_username
-password=$db_password
-url=jdbc:mysql://$db_localhost:$db_port/stima
-connection=LOCAL
-port=$webserver_port" >"$PROPERTY_FILE"
-}
+echo -e "SSH_USER: ${BOLDGREEN}${SSH_USER}${ENDCOLOR}"
+echo -e "SSH_HOST: ${BOLDGREEN}${SSH_HOST}${ENDCOLOR}"
+echo -e "SSH_PRIVATE_KEY: ${BOLDGREEN}${SSH_PRIVATE_KEY}${ENDCOLOR}"
+github@test:~$ cat test.sh
+#!/bin/bash
 
-# Create menu
-echo -e "${CYAN}Installation:${NC}"
-echo "1. Set properties"
-echo "2. Install tables"
-echo "3. Install tables and sample data"
-echo "4. Exit"
-echo -n "Enter your menu choice [1-4]: "
+env_file=~/.env
+ssh_key=~/.ssh/github-actions
 
-while :; do
-  read -r choice
+if [ -f $env_file ]; then
+   rm $env_file 2>/dev/null
+fi
 
-  case $choice in
-  1)
-    set_properties
-    ;;
+if [ -f $ssh_key ]; then
+   rm $ssh_key 2>/dev/null
+fi
 
-  2)
-    run_sql_script "Installing database ..." "./src/main/resources/static/data/install.sql"
-    ;;
+# Add environment variables
+array=(MYSQL_ROOT_PASSWORD MYSQL_DATABASE MYSQL_USER MYSQL_PASSWORD DOCKER_IMAGE_NAME GITHUB_USER)
+for i in "${array[@]}"; do
+  # Type the text that you want to append
+  read -rp "$i: " newtext
 
-  3)
-    run_sql_script "Installing database ..." "./src/main/resources/static/data/install.sql"
-    ;;
-
-  4)
-    echo "Quitting ..."
-    exit
-    ;;
-
-  *) echo "invalid option" ;;
-
-  esac
-  echo -n "Enter your menu choice [1-4]: "
+  # Check the new text is empty or not
+  if [ "$newtext" != "" ]; then
+    # Append the text by using '>>' symbol
+    echo "$i=$newtext" >>"$env_file"
+  fi
 done
+
+echo Please wait ...
+
+# Update and upgrade packages
+sudo apt-get update -qq 2>/dev/null
+sudo apt-get -y -qq upgrade 2>/dev/null
+
+# Install docker-compose
+sudo apt-get install -y -qq docker-compose 2>/dev/null
+
+# Generate a new key named github-actions with an empty password
+ssh-keygen -t rsa -b 4096 -f $ssh_key -q -P ""
+
+# Copy the content of github-actions into authorized_keys
+cat $ssh_key.pub >>~/.ssh/authorized_keys
+
+# Get GitHub secrets
+SSH_USER=$(whoami)
+SSH_HOST=$(echo "$SSH_CLIENT" | awk '{print $1}')
+SSH_PRIVATE_KEY=$(cat ~/.ssh/github-actions)
+
+GREEN="32"
+BOLDGREEN="\e[1;${GREEN}m"
+ENDCOLOR="\e[0m"
+
+echo -e "SSH_USER: ${BOLDGREEN}${SSH_USER}${ENDCOLOR}"
+echo -e "SSH_HOST: ${BOLDGREEN}${SSH_HOST}${ENDCOLOR}"
+echo -e "SSH_PRIVATE_KEY: ${BOLDGREEN}${SSH_PRIVATE_KEY}${ENDCOLOR}"
