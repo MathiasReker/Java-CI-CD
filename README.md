@@ -69,6 +69,11 @@ publish the release.
    cat ~/.ssh/github-actions.pub >> ~/.ssh/authorized_keys
    ```
 
+7. Grap the private key, as you will need it soon
+   ```sh
+   cat ~/.ssh/github-actions
+   ```
+
 ### Install action secrets
 
 Navigate to your GitHub repository. Go to settings -> secrets -> actions.
