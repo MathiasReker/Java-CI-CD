@@ -55,7 +55,7 @@ publish the release.
    _(Optinal) You can either run this install script or skip this step for manual installation_  
    ```sh
    bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
-   ```sh
+   ```
 
 3. Update and upgrade packages
    ```sh
