@@ -102,11 +102,9 @@ jobs:
 
       - name: Configure SSH
         run: |
-          mkdir -p ~/.ssh
-
-          cat "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-action.pem
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-action.pem
           chmod 600 ~/.ssh/github-action.pem
-
           cat >>~/.ssh/config <<EOF
           Host server
             HostName ${{ secrets.SSH_HOST }}
