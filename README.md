@@ -59,19 +59,14 @@ publish the release.
 
    _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
-5. Go to `~/.ssh`
+5. Generate a new key named `github-actions` with an empty password
    ```sh
-   cd ~/.ssh
+   ssh-keygen -t rsa -b 4096 -f ~/.ssh/github-actions -q -P ""
    ```
 
-6. Generate a new key named `github-actions` with an empty password
+6. Copy the content of `github-actions` into `authorized_keys`
    ```sh
-   ssh-keygen -t rsa -b 4096
-   ```
-
-7. Copy the content of `github-actions` into `authorized_keys`
-   ```sh
-   cat github-actions.pub >> authorized_keys
+   cat ~/.ssh/github-actions.pub >> ~/.ssh/authorized_keys
    ```
 
 ### Install action secrets
