@@ -52,13 +52,10 @@ publish the release.
 
    _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
-#### Automatic install
-   _You can either run this install script or skip this step for manual installation_  
+   _(Optinal) You can either run this install script or skip this step for manual installation_  
    ```sh
    bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
    ```sh
-
-#### Manually install
 
 3. Update and upgrade packages
    ```sh
