@@ -52,10 +52,10 @@ publish the release.
 
    _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
-_This script replaces step 3-7 (optional)_
-```sh
-bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
- ```
+> _This script replaces step 3-7 (optional)_
+> ```sh
+> bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
+> ```
 
 3. Update and upgrade packages
    ```sh
