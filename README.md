@@ -32,7 +32,7 @@ publish the release.
 
 ### Prepare the production server
 
-_This script replaces step 3-7 (optinal)_
+_This script replaces step 3-7 (optional)_
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
  ```
