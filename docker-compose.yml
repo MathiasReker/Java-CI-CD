@@ -17,7 +17,8 @@ services:
       - backend-net
     depends_on:
       - mysqlDb
-
+    restart: unless-stopped
+ 
   mysqlDb:
     image: mysql:latest
     ports:
@@ -29,6 +30,7 @@ services:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    restart: unless-stopped
 
 networks:
   backend-net: { }
