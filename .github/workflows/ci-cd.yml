@@ -102,9 +102,11 @@ jobs:
 
       - name: Configure SSH
         run: |
-          mkdir -p ~/.ssh/
+          mkdir -p ~/.ssh
+
           cat "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-action.pem
           chmod 600 ~/.ssh/github-action.pem
+
           cat >>~/.ssh/config <<EOF
           Host server
             HostName ${{ secrets.SSH_HOST }}
@@ -112,7 +114,6 @@ jobs:
             IdentityFile ~/.ssh/github-action.pem
             StrictHostKeyChecking no
           EOF
-          chmod 600 ~/.ssh/config
 
       - name: Push docker compose to remote host
         run: rsync -e ssh ./docker-compose.yml server:~/
