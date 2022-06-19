@@ -33,4 +33,4 @@ services:
     restart: unless-stopped
 
 networks:
-  backend-net: {}
+  backend-net: { }
