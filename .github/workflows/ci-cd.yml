@@ -113,7 +113,6 @@ jobs:
 
           docker tag "${TARGET_IMAGE}" "${TARGET_IMAGE}:${TAG}"
           docker push "${TARGET_IMAGE}:${TAG}"
-          docker logout ghcr.io
 
       - name: Configure SSH
         run: |
