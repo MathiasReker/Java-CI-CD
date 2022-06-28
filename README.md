@@ -56,7 +56,7 @@ publish the release.
 
 > _This script replaces step 3-7 (optional)_
 > ```sh
-> bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
+> bash <(curl -s https://raw.githubusercontent.com/MathiasReker/Java-CI-CD/develop/install.bash)
 > ```
 
 3. Install docker-compose
