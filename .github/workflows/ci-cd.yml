@@ -111,7 +111,7 @@ jobs:
           # Display computed values
           echo "TARGET_IMAGE:TAG = ${TARGET_IMAGE}:${TAG}"
 
-          docker tag "${TARGET_IMAGE}" "${TARGET_IMAGE}:${TAG}"
+          docker tag "${IMAGE_NAME}" "${TARGET_IMAGE}:${TAG}"
           docker push "${TARGET_IMAGE}:${TAG}"
 
       - name: Configure SSH
