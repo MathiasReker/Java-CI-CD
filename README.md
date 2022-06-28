@@ -7,7 +7,7 @@
 [![MIT License][license-shield]][license-url]
 [![CI/CD][cicd-shield]][cicd-url]
 
-<div style="text-align: center">
+<div align="center">
 <h3>CI/CD GitHub Action :rocket:</h3>
   <p>
     A CI/CD workflow for your maven project!
@@ -54,32 +54,27 @@ publish the release.
 
    _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
-> _This script replaces step 3-7 (optional)_
+> _This script replaces step 3-6 (optional)_
 > ```sh
-> bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
+> bash <(curl -s https://raw.githubusercontent.com/MathiasReker/Java-CI-CD/develop/install.bash)
 > ```
 
-3. Update and upgrade packages
+3. Install docker-compose
    ```sh
-   sudo apt-get update && sudo apt-get -y upgrade
+   sudo apt-get update && sudo apt-get install -y docker-compose
    ```
 
-4. Install docker-compose
-   ```sh
-   sudo apt-get install -y docker-compose
-   ```
-
-5. Generate a new key named `github-actions` with an empty password
+4. Generate a new key named `github-actions` with an empty password
    ```sh
    ssh-keygen -t rsa -b 4096 -f ~/.ssh/github-actions -q -P ""
    ```
 
-6. Copy the content of `github-actions` into `authorized_keys`
+5. Copy the content of `github-actions` into `authorized_keys`
    ```sh
    cat ~/.ssh/github-actions.pub >>~/.ssh/authorized_keys
    ```
 
-7. Grab the private key, as you will need it soon
+6. Grab the private key, as you will need it soon
    ```sh
    cat ~/.ssh/github-actions
    ```
@@ -115,7 +110,7 @@ repository.
 Navigate to your GitHub repository. Go to the package -> select package settings -> select danger zone -> change
 visibility -> make it public.
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
 
@@ -123,7 +118,7 @@ The CI pipeline is triggered on any change to the code on your repository.
 
 The CD pipeline is triggered on push events. The CD pipeline will be skipped if the CI pipeline fails.
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
 
@@ -135,20 +130,20 @@ The CD pipeline is triggered on push events. The CD pipeline will be skipped if 
 See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a complete list of proposed features (and known
 issues).
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contributing
 
 If you have a suggestion to improve this, please fork the repo and create a pull request. You can also open an issue
 with the tag "enhancement". Finally, don't forget to give the project a star! Thanks again!
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
 
 It is distributed under the MIT License. See `LICENSE` for more information.
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/MathiasReker/CI-CD.svg
 

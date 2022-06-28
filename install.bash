@@ -1,11 +1,11 @@
 #!/bin/bash
 
-ssh_key=~/.ssh/github-actions
+readonly SSH_KEY=~/.ssh/github-actions
 
 clear
 
-if [ -f $ssh_key ]; then
-  rm $ssh_key 2>/dev/null
+if [ -f $SSH_KEY ]; then
+  rm $SSH_KEY 2>/dev/null
 fi
 
 echo -e "Please wait ...\n"
@@ -17,10 +17,10 @@ sudo apt-get update -qq 2>/dev/null
 sudo apt-get install -y -qq docker-compose 2>/dev/null
 
 # Generate a new key named github-actions with an empty password
-ssh-keygen -t rsa -b 4096 -f $ssh_key -q -P ""
+ssh-keygen -t rsa -b 4096 -f $SSH_KEY -q -P ""
 
 # Copy the content of github-actions into authorized_keys
-cat $ssh_key.pub >>~/.ssh/authorized_keys
+cat $SSH_KEY.pub >>~/.ssh/authorized_keys
 
 # Get GitHub secrets
 SSH_USER=$(whoami)
