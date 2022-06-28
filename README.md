@@ -59,27 +59,22 @@ publish the release.
 > bash <(curl -s https://raw.githubusercontent.com/MathiasReker/CI-CD/develop/install.bash)
 > ```
 
-3. Update and upgrade packages
+3. Install docker-compose
    ```sh
-   sudo apt-get update && sudo apt-get -y upgrade
+   sudo apt-get update && sudo apt-get install -y docker-compose
    ```
 
-4. Install docker-compose
-   ```sh
-   sudo apt-get install -y docker-compose
-   ```
-
-5. Generate a new key named `github-actions` with an empty password
+4. Generate a new key named `github-actions` with an empty password
    ```sh
    ssh-keygen -t rsa -b 4096 -f ~/.ssh/github-actions -q -P ""
    ```
 
-6. Copy the content of `github-actions` into `authorized_keys`
+5. Copy the content of `github-actions` into `authorized_keys`
    ```sh
    cat ~/.ssh/github-actions.pub >>~/.ssh/authorized_keys
    ```
 
-7. Grab the private key, as you will need it soon
+6. Grab the private key, as you will need it soon
    ```sh
    cat ~/.ssh/github-actions
    ```
