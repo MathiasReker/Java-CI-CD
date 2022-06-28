@@ -7,7 +7,7 @@
 [![MIT License][license-shield]][license-url]
 [![CI/CD][cicd-shield]][cicd-url]
 
-<div style="text-align: center">
+<div align="center">
 <h3>CI/CD GitHub Action :rocket:</h3>
   <p>
     A CI/CD workflow for your maven project!
@@ -110,7 +110,7 @@ repository.
 Navigate to your GitHub repository. Go to the package -> select package settings -> select danger zone -> change
 visibility -> make it public.
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
 
@@ -118,7 +118,7 @@ The CI pipeline is triggered on any change to the code on your repository.
 
 The CD pipeline is triggered on push events. The CD pipeline will be skipped if the CI pipeline fails.
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
 
@@ -130,20 +130,20 @@ The CD pipeline is triggered on push events. The CD pipeline will be skipped if 
 See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a complete list of proposed features (and known
 issues).
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contributing
 
 If you have a suggestion to improve this, please fork the repo and create a pull request. You can also open an issue
 with the tag "enhancement". Finally, don't forget to give the project a star! Thanks again!
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
 
 It is distributed under the MIT License. See `LICENSE` for more information.
 
-<p style="text-align: right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/MathiasReker/CI-CD.svg
 
