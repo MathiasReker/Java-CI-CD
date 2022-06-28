@@ -50,7 +50,7 @@ jobs:
 
       - name: Configure the application.properties file
         run: |
-          cat <<"EOF" >"./src/main/resources/application.properties"
+          cat >~/.ssh/config <<EOF
           spring.datasource.url=jdbc:mysql://localhost:3306/unittest
           spring.datasource.username=root
           spring.datasource.password=

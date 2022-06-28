@@ -7,9 +7,10 @@
 [![MIT License][license-shield]][license-url]
 [![CI/CD][cicd-shield]][cicd-url]
 
-<div align="center">
-<h3 align="center">CI/CD GitHub Action :rocket:</h3>
-  <p align="center">
+
+<div style="text-align: center">
+<h3>CI/CD GitHub Action :rocket:</h3>
+  <p>
     A CI/CD workflow for your maven project!
   </p>
 </div>
@@ -24,7 +25,7 @@ The CD pipeline will create a docker image of the project's code and deploy the 
 MySQL container on a remote server using SSH. The bridge driver of docker networks connects these containers.
 
 In the `docker-compose.yml`, you can configure the tag of the images. By default, the tag of the project is `dev`.
-However, you can change the tag to a specific version to control the deployment. The workflow supports tags in the 
+However, you can change the tag to a specific version to control the deployment. The workflow supports tags in the
 sem-version format like `v*.*.*`.
 
 To create a new release using a specific tag, navigate to your GitHub repository. Go to tags -> create new release ->
@@ -37,18 +38,20 @@ publish the release.
    ssh -i <private key path> <user>@<host>
    ```
 
-2. Add environment variables
-   ```sh
-   echo "MYSQL_ROOT_PASSWORD=myrootpw
-   MYSQL_DATABASE=mydb
-   MYSQL_USER=myuser
-   MYSQL_PASSWORD=mypw
-   DOCKER_IMAGE_NAME=ci-cd
-   GITHUB_USER=mathiasreker" > ~/.env
-   ```
+    1. Add environment variables
+       ```sh
+       echo "MYSQL_ROOT_PASSWORD=myrootpw
+       MYSQL_DATABASE=mydb
+       MYSQL_USER=myuser
+       MYSQL_PASSWORD=mypw
+       DOCKER_IMAGE_NAME=ci-cd
+       GITHUB_USER=mathiasreker" >~/.env
+       ```
+
    _`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
 
-   _`DOCKER_IMAGE_NAME` must match the name of the docker image defined in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
+   _`DOCKER_IMAGE_NAME` must match the name of the docker image defined
+   in [workflow](https://github.com/MathiasReker/CI-CD/blob/develop/.github/workflows/ci-cd.yml)._
 
    _`GITHUB_USER` must be the user/organisation of the repository in **lower case**._
 
@@ -74,10 +77,10 @@ publish the release.
 
 6. Copy the content of `github-actions` into `authorized_keys`
    ```sh
-   cat ~/.ssh/github-actions.pub >> ~/.ssh/authorized_keys
+   cat ~/.ssh/github-actions.pub >>~/.ssh/authorized_keys
    ```
 
-7. Grap the private key, as you will need it soon
+7. Grab the private key, as you will need it soon
    ```sh
    cat ~/.ssh/github-actions
    ```
@@ -139,12 +142,6 @@ issues).
 
 If you have a suggestion to improve this, please fork the repo and create a pull request. You can also open an issue
 with the tag "enhancement". Finally, don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

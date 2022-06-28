@@ -10,9 +10,8 @@ fi
 
 echo -e "Please wait ...\n"
 
-# Update and upgrade packages
+# Update packages
 sudo apt-get update -qq 2>/dev/null
-sudo apt-get -y -qq upgrade 2>/dev/null
 
 # Install docker-compose
 sudo apt-get install -y -qq docker-compose 2>/dev/null
