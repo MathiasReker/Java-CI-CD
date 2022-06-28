@@ -7,7 +7,6 @@
 [![MIT License][license-shield]][license-url]
 [![CI/CD][cicd-shield]][cicd-url]
 
-
 <div style="text-align: center">
 <h3>CI/CD GitHub Action :rocket:</h3>
   <p>
@@ -38,15 +37,15 @@ publish the release.
    ssh -i <private key path> <user>@<host>
    ```
 
-    1. Add environment variables
-       ```sh
-       echo "MYSQL_ROOT_PASSWORD=myrootpw
-       MYSQL_DATABASE=mydb
-       MYSQL_USER=myuser
-       MYSQL_PASSWORD=mypw
-       DOCKER_IMAGE_NAME=ci-cd
-       GITHUB_USER=mathiasreker" >~/.env
-       ```
+2. Add environment variables
+   ```sh
+   echo "MYSQL_ROOT_PASSWORD=myrootpw
+   MYSQL_DATABASE=mydb
+   MYSQL_USER=myuser
+   MYSQL_PASSWORD=mypw
+   DOCKER_IMAGE_NAME=ci-cd
+   GITHUB_USER=mathiasreker" >~/.env
+   ```
 
    _`MYSQL_ROOT_PASSWORD`, `MYSQL_DATABASE`, `MYSQL_USER` and `MYSQL_PASSWORD` can be anything._
 
@@ -116,7 +115,7 @@ repository.
 Navigate to your GitHub repository. Go to the package -> select package settings -> select danger zone -> change
 visibility -> make it public.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align: right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
 
@@ -124,7 +123,7 @@ The CI pipeline is triggered on any change to the code on your repository.
 
 The CD pipeline is triggered on push events. The CD pipeline will be skipped if the CI pipeline fails.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align: right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
 
@@ -136,20 +135,20 @@ The CD pipeline is triggered on push events. The CD pipeline will be skipped if 
 See the [open issues](https://github.com/MathiasReker/CI-CD/issues) for a complete list of proposed features (and known
 issues).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align: right">(<a href="#top">back to top</a>)</p>
 
 ## Contributing
 
 If you have a suggestion to improve this, please fork the repo and create a pull request. You can also open an issue
 with the tag "enhancement". Finally, don't forget to give the project a star! Thanks again!
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align: right">(<a href="#top">back to top</a>)</p>
 
 ## License
 
 It is distributed under the MIT License. See `LICENSE` for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p style="text-align: right">(<a href="#top">back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/MathiasReker/CI-CD.svg
 
