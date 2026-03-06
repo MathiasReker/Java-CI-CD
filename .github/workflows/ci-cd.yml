@@ -85,7 +85,7 @@ jobs:
         run: |
           docker build . --file Dockerfile --tag "${IMAGE_NAME}" --label "runnumber=${GITHUB_RUN_ID}"
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           push: true
           tags: registry.heroku.com/experts-formula/web
